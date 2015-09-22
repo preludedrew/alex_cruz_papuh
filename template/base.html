@@ -1,0 +1,65 @@
+$def with (page)
+$ wallpaper_dirs = get_wallpaper_dirs()
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Papuh - By: Alex Cruz</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="static/res/js/photo-gallery.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/res/css/style.css" />
+
+  </head>
+
+  <body>
+    <!--body-wrap-->
+    <div class="body-wrap">
+      <!--navbar-->
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-main" role="navigation">
+        <!--header-->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Papuh - By: Alex Cruz</a>
+        </div>
+        <!--header end-->
+        <div class="collapse navbar-collapse navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            $for ii in wallpaper_dirs:
+              <li id="nav-wallpapers-$ii">
+                <a href="/wallpapers?dir=$ii">$ii</a>
+              </li>
+          </ul>
+        </div><!--collapse-->
+      </nav>
+      <!--navbar end-->
+
+      <!--Content container-->
+      <div class="container">
+        $:page $# Don't move this
+      </div>
+      <!--Content container end-->
+
+    </div>
+    <!--body-wrap end-->
+    <script type="text/javascript" src="/static/res/js/js-url.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        /* Highlight current page */
+        page = url(1);
+        
+        dir = url(0).split('=')[1];
+        $$('li#nav-wallpapers-' + dir).addClass('active');
+    })(jQuery);
+    </script>
+  </body>
+</html>

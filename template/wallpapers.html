@@ -1,0 +1,20 @@
+$def with (wallpaper_imgs, img_location)
+$var title: Pictures
+
+<div class="container">
+  <ul class="row">
+    $for xx in wallpaper_imgs:
+      <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 wallpaper-li">
+          <img class="img-responsive" src="$img_location/$xx">
+      </li>
+  </ul>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">               
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
